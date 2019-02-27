@@ -1,6 +1,5 @@
 import unittest
 from selenium import webdriver
-from selenium.webdriver.common.keys import Keys
 
 
 class PythonOrgSearch(unittest.TestCase):
@@ -13,9 +12,15 @@ class PythonOrgSearch(unittest.TestCase):
         driver = self.driver
         driver.get(self.base_url + "login/")
 
-        driver.find_element_by_id("id_usernamee").send_keys("victo")
+        driver.find_element_by_id("id_username").send_keys("victo")
         driver.find_element_by_id("id_password").send_keys("password")
         driver.find_element_by_class_name("submit-btn").click()
+
+        assert 'login' not in self.get_relative_url()
+
+    def get_relative_url(self):
+        current_url = self.driver.current_url
+        return current_url.replace(self.base_url, "")
 
     def tearDown(self):
         self.driver.close()
