@@ -60,7 +60,7 @@ def wait_for(condition_function, timeout=3, interval=0.1):
 def click_on_next(driver):
     try:
         btn = driver.find_element_by_class_name('swipeNextClick')
-    except NoSuchElementException:
+    except Exception:
         return -1
 
     btn.click()

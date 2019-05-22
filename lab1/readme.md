@@ -3,3 +3,5 @@
 ### Objective
   * Get familiar with Selenium
   * Write a Selenium test for login
+
+### How to run
